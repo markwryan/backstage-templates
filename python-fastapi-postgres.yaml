@@ -28,12 +28,6 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        password:
-          title: Password
-          type: string
-          description: Password/Secret Key for several components
-          ui:options:
-            rows: 5
     - title: Choose a location
       required:
         - repoUrl
@@ -50,9 +44,10 @@ spec:
   steps:
     - id: fetch-base
       name: Fetch Base
-      action: fetch:template
+      action: fetch:cookiecutter
       input:
-        url: https://github.com/tiangolo/full-stack-fastapi-postgresql.git
+        url: https://github.com/tiangolo/full-stack-fastapi-postgresql/tree/master
+        targetPath: .
         cookiecutterCompat: true
         values:
           project_name: ${{ parameters.name }}
