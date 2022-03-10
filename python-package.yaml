@@ -43,10 +43,9 @@ spec:
   steps:
     - id: fetch-base
       name: Fetch Base
-      action: fetch:template
+      action: fetch:cookiecutter
       input:
         url: https://github.com/audreyfeldroy/cookiecutter-pypackage.git
-        cookiecutterCompat: true
         values:
           project_name: ${{ parameters.name }}
           github_username: markwryan
