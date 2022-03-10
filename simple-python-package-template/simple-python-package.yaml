@@ -27,6 +27,14 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+        description:
+          title: Description
+          type: string
+          description: Description of the package
+        jira-key:
+          title: Jira Project Key
+          type: string
+          description: Project key for the related Jira project
     - title: Choose a location
       required:
         - repoUrl
@@ -47,10 +55,9 @@ spec:
       input:
         url: ./skeleton
         values:
-          project_name: ${{ parameters.name }}
-          github_username: markwryan
-          full_name: Mark Ryan
-          email: mark.ryan@getordermark.com
+          package_name: ${{ parameters.name }}
+          package_description: ${{ parameters.description }}
+          jira_project_key: ${{ parameters.jira-key }}
 
     - id: publish
       name: Publish
