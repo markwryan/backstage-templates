@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.package_name | dump}}
+  {%- if values.description %}
+  description: ${{values.package_description | dump}}
+  {%- endif %}
+  annotations:
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+    backstage.io/techdocs-ref: dir:.
+    jira/project-key: ${{values.jira_project_key}}
+    jira/token-type: Bearer
+spec:
+  type: service
+  lifecycle: experimental
+  owner: ${{values.owner | dump}}
