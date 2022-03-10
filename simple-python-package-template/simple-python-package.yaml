@@ -19,6 +19,7 @@ spec:
     - title: Fill in some steps
       required:
         - name
+        - jira_key
       properties:
         name:
           title: Name
@@ -31,10 +32,19 @@ spec:
           title: Description
           type: string
           description: Description of the package
-        jira-key:
+        jira_key:
           title: Jira Project Key
           type: string
           description: Project key for the related Jira project
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+              - User
     - title: Choose a location
       required:
         - repoUrl
@@ -58,6 +68,8 @@ spec:
           package_name: ${{ parameters.name }}
           package_description: ${{ parameters.description }}
           jira_project_key: ${{ parameters.jira-key }}
+          owner: ${{ parameters.owner }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
     - id: publish
       name: Publish
@@ -73,3 +85,10 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
