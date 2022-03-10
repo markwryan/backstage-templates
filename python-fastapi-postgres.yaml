@@ -46,7 +46,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: https://github.com/tiangolo/full-stack-fastapi-postgresql
+        url: https://github.com/tiangolo/full-stack-fastapi-postgresql.git
         cookiecutterCompat: true
         values:
           name: ${{ parameters.name }}
