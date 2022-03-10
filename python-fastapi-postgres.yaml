@@ -56,7 +56,7 @@ spec:
         copyWithoutRender:
           - .github/workflows/*
         values:
-          name: ${{ parameters.name }}
+          project_name: ${{ parameters.name }}
           secret_key: ${{ parameters.password }}
           first_superuser_password: ${{ parameters.password }}
           postgres_password: ${{ parameters.password }}
