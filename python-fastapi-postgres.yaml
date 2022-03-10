@@ -28,6 +28,12 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+        password:
+          title: Password
+          type: string
+          description: Password/Secret Key for several components
+          ui:options:
+            rows: 5
     - title: Choose a location
       required:
         - repoUrl
@@ -51,6 +57,10 @@ spec:
           - .github/workflows/*
         values:
           name: ${{ parameters.name }}
+          secret_key: ${{ parameters.password }}
+          first_superuser_password: ${{ parameters.password }}
+          postgres_password: ${{ parameters.password }}
+          pgadmin_default_user_password: ${{ parameters.password }}
 
     - id: publish
       name: Publish
