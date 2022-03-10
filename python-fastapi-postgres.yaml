@@ -61,6 +61,7 @@ spec:
           first_superuser_password: ${{ parameters.password }}
           postgres_password: ${{ parameters.password }}
           pgadmin_default_user_password: ${{ parameters.password }}
+          docker_image_prefix: test
 
     - id: publish
       name: Publish
