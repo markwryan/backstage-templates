@@ -67,7 +67,7 @@ spec:
         values:
           package_name: ${{ parameters.name }}
           package_description: ${{ parameters.description }}
-          jira_project_key: ${{ parameters.jira-key }}
+          jira_project_key: ${{ parameters.jira_key }}
           owner: ${{ parameters.owner }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
