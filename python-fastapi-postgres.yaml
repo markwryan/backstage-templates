@@ -48,6 +48,8 @@ spec:
       input:
         url: https://github.com/tiangolo/full-stack-fastapi-postgresql.git
         cookiecutterCompat: true
+        copyWithoutRender:
+          - .github/workflows/*
         values:
           name: ${{ parameters.name }}
 
